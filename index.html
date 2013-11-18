@@ -1,0 +1,38 @@
+<html ng-app="app">
+<head>
+    <script type="text/javascript" src="lib/jquery.js"></script>
+    <script type="text/javascript" src="lib/angular.js"></script>
+    <script type="text/javascript" src="js/ui-options.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+</head>
+<body>
+<div class="container" ng-controller="demoCtr">
+    <pre>{{demos | json}}</pre>
+    <select ui-options="options" ng-model="demos" class="form-control"></select>
+    <button class="btn" type="button" ng-click="changeOptions();">add</button>
+</div>
+</body>
+<script type="text/javascript">
+    angular.module('app', ["ui-options"]).controller("demoCtr", ["$scope", function ($scope) {
+        $scope.vm = {};
+        $scope.options = [
+            {
+                text: "text1",
+                value: "value1"
+            }
+        ];
+
+        $scope.changeOptions = function () {
+            $scope.options.length = 0;
+            for (var j = 0; j < 5; j++) {
+                var i = Math.floor(Math.random() * 100)
+                $scope.options.push({
+                    text: "text" + i,
+                    value: "value" + i
+                });
+            }
+        };
+    }]);
+
+</script>
+</html>

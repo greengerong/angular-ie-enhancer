@@ -3,7 +3,6 @@ angular.module('ui-options', [])
 
         return  function (scope, elm, iAttrs) {
             scope.$watch(iAttrs.uiOptions, function (val) {
-                console.log(val, "$watch");
                 renderOption(val);
             }, true);
 

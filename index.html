@@ -1,4 +1,4 @@
-<html ng-app="app">
+<html id="ng-app" ng-app="app">
 <head>
     <script type="text/javascript" src="lib/jquery.js"></script>
     <script type="text/javascript" src="lib/angular.js"></script>
@@ -7,8 +7,13 @@
 </head>
 <body>
 <div class="container" ng-controller="demoCtr">
+    <br>
+    <br>
+    <br>
     <pre>{{demos | json}}</pre>
-    <select ui-options="options" ng-model="demos" class="form-control"></select>
+    <select ui-options="options" ng-model="demos" class="form-control">
+        <option value="" default>Select</option>
+    </select>
     <button class="btn" type="button" ng-click="changeOptions();">add</button>
 </div>
 </body>

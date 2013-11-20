@@ -1,4 +1,4 @@
-angular.module('ui-options', [])
+angular.module('ie.select', [])
     .directive('ieSelectFix', [
         function () {
             return {

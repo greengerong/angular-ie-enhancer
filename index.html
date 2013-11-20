@@ -2,7 +2,7 @@
 <head>
     <script type="text/javascript" src="lib/jquery.js"></script>
     <script type="text/javascript" src="lib/angular.js"></script>
-    <script type="text/javascript" src="js/ui-options.js"></script>
+    <script type="text/javascript" src="js/ie.select.js"></script>
     <link rel="stylesheet" href="css/bootstrap.css"/>
 </head>
 <body>
@@ -19,7 +19,7 @@
 </div>
 </body>
 <script type="text/javascript">
-    angular.module('app', ["ui-options"]).controller("demoCtr", ["$scope", function ($scope) {
+    angular.module('app', ["ie.select"]).controller("demoCtr", ["$scope", function ($scope) {
         $scope.vm = {};
         $scope.options = [
             {

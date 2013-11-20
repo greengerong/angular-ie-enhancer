@@ -11,7 +11,8 @@
     <br>
     <br>
     <pre>{{demos | json}}</pre>
-    <select ui-options="options" ng-model="demos" class="form-control">
+    <select ie-select-fix="options" ng-model="demos" class="form-control"
+            ng-options="currOption.value as currOption.text for currOption in options">
         <option value="" default>Select</option>
     </select>
     <button class="btn" type="button" ng-click="changeOptions();">add</button>
@@ -24,6 +25,10 @@
             {
                 text: "text1",
                 value: "value1"
+            },
+            {
+                text: "text2",
+                value: "value2"
             }
         ];
 

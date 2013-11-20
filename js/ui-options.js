@@ -1,23 +1,22 @@
 angular.module('ui-options', [])
-    .directive('uiOptions', ["$timeout", function ($timeout) {
+    .directive('ieSelectFix', [
+        function () {
+            return {
+                restrict: 'A',
+                require: 'select',
+                link: function (scope, element, attributes) {
+                    var isIE = document.attachEvent;
+                    if (!isIE) return;
 
-        return {
-            restrict: "A",
-            link: function (scope, elm, iAttrs) {
-                scope.$watch(iAttrs.uiOptions, function (val) {
-                    renderOption(val);
-                }, true);
-
-                var renderOption = function (val) {
-                    elm.find("option").not("[default]").remove();
-                    if (val) {
-                        var options = [];
-                        angular.forEach(val, function (obj) {
-                            options.push("<option value='" + obj.value + "'  >" + obj.text + "</option>")
-                        });
-                        elm.append(options.join(""));
-                    }
-                };
+                    var control = element[0];
+                    scope.$watch(attributes.ieSelectFix, function () {
+                        //it should be use javascript way, not jquery way.
+                        var option = document.createElement("option");
+                        control.add(option, null);
+                        control.remove(control.options.length - 1);
+                    });
+                }
             }
-        };
-    }]);
+        }
+    ]);
+
